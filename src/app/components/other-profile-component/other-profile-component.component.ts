@@ -78,14 +78,14 @@ export class OtherProfileComponent implements OnInit {
 
     public followUser() {
         this.startVolgen(this.loggedInUser.profielNaam, this.kwetteraar.profielNaam);
-        let username = localStorage.getItem('clickedUsername');
-        this.getKwetteraarByName(username);
+        this.ngOnInit();
+        window.location.reload();
     }
 
     public unfollowUser() {
         this.stopVolgen(this.loggedInUser.profielNaam, this.kwetteraar.profielNaam);
-        let username = localStorage.getItem('clickedUsername');
-        this.getKwetteraarByName(username);
+        this.ngOnInit();
+        window.location.reload();
     }
 
 }

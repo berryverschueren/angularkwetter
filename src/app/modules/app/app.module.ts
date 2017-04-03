@@ -20,6 +20,7 @@ import { MyProfileComponent } from "app/components/my-profile-component/my-profi
 import { AuthGuard } from "app/guards/authentication.guard";
 import { MyUitloggenComponent } from "app/components/my-uitloggen-component/my-uitloggen-component.component";
 import { OtherProfileComponent } from "app/components/other-profile-component/other-profile-component.component";
+import { UpdateProfileComponent } from "app/components/update-profile-component/update-profile-component.component";
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { OtherProfileComponent } from "app/components/other-profile-component/ot
     MyRegistrerenComponent,
     MyProfileComponent,
     OtherProfileComponent,
+    UpdateProfileComponent,
     MyUitloggenComponent
   ],
   imports: [

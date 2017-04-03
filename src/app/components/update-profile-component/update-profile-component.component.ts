@@ -7,14 +7,13 @@ import { Router } from "@angular/router";
 import { MyKweetService } from "app/services/my-kweet-service/my-kweet-service.service";
 
 @Component({
-    selector: 'my-profile-component',
-    templateUrl: './my-profile-component.component.html',
-    styleUrls: ['./my-profile-component.component.css']
+    selector: 'update-profile-component',
+    templateUrl: './update-profile-component.component.html',
+    styleUrls: ['./update-profile-component.component.css']
 })
-export class MyProfileComponent implements OnInit {
+export class UpdateProfileComponent implements OnInit {
 
     public kwetteraar: any;
-    public showLeiders = true;
 
     constructor(private router: Router, private kweetService: MyKweetService, private kwetteraarService: MyKwetteraarService) {
     }
@@ -37,24 +36,20 @@ export class MyProfileComponent implements OnInit {
         });
     }
 
-    public verwijderKweet(id: number) {
-        this.kweetService.delete(id).subscribe(k => {
+    public opslaan() {
+        this.kwetteraarService.wijzigNaam(this.kwetteraar.id, this.kwetteraar.profielNaam).subscribe(k => {
             console.log(k);
-            this.kwetteraar.kweets = k;
+            this.kwetteraar = k;
         });
-    }
-
-    public showLeidersOrVolgers(status: boolean) {
-        this.showLeiders = status;
-    }
-
-    public redirectToEditProfile() : void {
-        this.router.navigateByUrl('/updateprofile');
-    }
-
-    public redirectToProfile(name: string) : void {
-        localStorage.setItem('clickedUsername', name);
-        this.router.navigateByUrl('/otherprofile');
+        this.kwetteraarService.wijzigFoto(this.kwetteraar.id, this.kwetteraar.profielFoto).subscribe(k => {
+            console.log(k);
+            this.kwetteraar = k;
+        });
+        this.kwetteraarService.wijzigBio(this.kwetteraar.id, this.kwetteraar.bio).subscribe(k => {
+            console.log(k);
+            this.kwetteraar = k;
+            this.router.navigateByUrl('/profile');
+        });
     }
 
 }
