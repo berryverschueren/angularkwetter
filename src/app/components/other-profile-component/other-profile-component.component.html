@@ -9,6 +9,12 @@
                     {{kwetteraar.profielNaam}}
                 </h1>
             </div>
+            <div class="col-md-1" *ngIf="!alreadyFollowing">
+                <span class="profile-link" (click)="followUser()">Follow {{kwetteraar.profielNaam}}</span>          
+            </div>
+            <div class="col-md-1" *ngIf="alreadyFollowing">
+                <span class="profile-link" (click)="unfollowUser()">Unfollow {{kwetteraar.profielNaam}}</span>          
+            </div>
         </div>
         <div class="row extra-padding-block">
             <div class="row">
@@ -18,7 +24,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <div *ngFor="let kweet of kwetteraar.kweets">
+                    <div *ngFor="let kweet of kwetteraar.kweets" class="kweet-border">
                         <div class="row kweet-title">
                             <div class="col-md-12">
                                 <span class="profile-link" (click)="redirectToProfile(kweet.eigenaar.profielNaam)">{{kweet.eigenaar.profielNaam}}'s</span> kweet van: {{kweet.datum}}

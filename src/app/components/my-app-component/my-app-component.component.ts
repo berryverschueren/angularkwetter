@@ -10,6 +10,6 @@ export class MyAppComponent {
 	constructor(){}
 
     public uitloggen() {
-        localStorage.removeItem('loggedInUserId');
+        localStorage.removeItem('loggedInUserName');
     }
 }

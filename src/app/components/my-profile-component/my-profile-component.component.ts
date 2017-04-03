@@ -20,7 +20,7 @@ export class MyProfileComponent implements OnInit {
     }
 
     public ngOnInit() {
-        this.getKwetteraarById(Number(localStorage.getItem('loggedInUserId')));
+        this.getKwetteraarByName(localStorage.getItem('loggedInUserName'));
     }
 
     public getKwetteraarByName(name: string) : void {

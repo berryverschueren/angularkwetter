@@ -56,6 +56,13 @@ export class MyKwetteraarService {
     return this.postRequest(url, body);
   }
 
+  public stopVolger(naamVolger: string, naamLeider: string):  Observable<any> {
+    const endPoint = 'rest/kwetteraar/post/stopvolg/';
+    const url = this.globalUrl + endPoint;
+    let body = 'naamVolger=' + naamVolger + '&naamLeider=' + naamLeider;
+    return this.postRequest(url, body);
+  }
+
   public inloggen(name: string, wachtwoord: string):  Observable<any> {
     const endPoint = 'rest/kwetteraar/post/login/';
     const url = this.globalUrl + endPoint;

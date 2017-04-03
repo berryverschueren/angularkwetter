@@ -22,12 +22,17 @@
     font-size: 18px;
     padding-top: 5px;
     padding-bottom: 5px;
-    border-bottom: 1px solid black;
 }
 .kweet-title {
     padding-top: 10px;
     font-size: 14px;
     color: #5d5f60;
+}
+.kweet-border {
+    border-bottom: 1px solid black;
+}
+.kweet-border:last-child {
+    border: none;
 }
 .profile-link {
      color: #006699;
