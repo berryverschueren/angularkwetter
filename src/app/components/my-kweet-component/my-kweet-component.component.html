@@ -1,0 +1,26 @@
+<div class="row kweet" *ngFor="let kweet of kweets">
+  <div class="col-md-1">
+    <span>id:</span>
+  </div>
+  <div class="col-md-11">
+    <span>{{kweet.id}}</span>
+  </div>
+  <div class="col-md-1">
+    <span>inhoud:</span>
+  </div>
+  <div class="col-md-11">
+    <span>{{kweet.inhoud}}</span>
+  </div>
+  <div class="col-md-1">
+    <span>datum:</span>
+  </div>
+  <div class="col-md-11">
+    <span>{{kweet.datum}}</span>
+  </div>
+  <div class="col-md-1">
+    <span>eigenaar:</span>
+  </div>
+  <div class="col-md-11">
+    <span>{{kweet.eigenaar.profielNaam}}</span>
+  </div>
+</div>
