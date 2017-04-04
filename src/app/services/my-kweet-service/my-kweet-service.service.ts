@@ -53,7 +53,7 @@ export class MyKweetService {
     return this.getRequest(url);
   }
 
-  public getRecentKweetAndLeaderKweetsByKwetteraarId(id: number): Observable<MyKweetModel[]> {
+  public getRecentKweetAndLeaderKweetsByKwetteraarId(id: number): Observable<any> {
     const endPoint = 'rest/kweet/get/more/kwetteraarid/timeline/' + id;
     const url = this.globalUrl + endPoint;
     return this.getRequest(url);

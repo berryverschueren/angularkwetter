@@ -1,0 +1,130 @@
+<div class="row extra-padding-container" *ngIf="kwetteraar">
+    <div class="col-md-12">
+        <div class="row extra-padding-block">
+            <div class="row">
+                <div class="col-md-2 block-titel">
+                    <b>Search Kweet:</b>
+                </div>
+            </div>
+            <form>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" id="searchString" required [(ngModel)]="searchString" name="searchString">
+                </div>
+                <button type="submit" class="btn btn-success col-md-2" (click)="searchKweet()">Search</button>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="row extra-padding-block">
+            <form>
+                <div class="form-group">
+                    <label for="name">Kweet-Content</label>
+                    <textarea class="form-control" rows="5" id="newKweetString" required [(ngModel)]="newKweetString" name="newKweetString"></textarea>                    
+                </div>
+                <button type="submit" class="btn btn-success" (click)="sendKweet()">Kweet</button>
+            </form>
+        </div>
+        <div class="row extra-padding-block" *ngIf="showTimeline == 1">
+            <div class="row">
+                <div class="col-md-2 block-titel">
+                    <b>Timeline:</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div *ngFor="let kweet of timelineKweets" class="kweet-border">
+                        <div class="row kweet-title">
+                            <div class="col-md-10">
+                                <span class="profile-link" (click)="redirectToProfile(kweet.eigenaar.profielNaam)">{{kweet.eigenaar.profielNaam}}'s</span> kweet van: {{kweet.datum}}
+                            </div>
+                            <div class="col-md-2">
+                                <span class="profile-link" (click)="verwijderKweet(kweet.id)">verwijderen</span>
+                            </div>
+                        </div>
+                        <div class="row kweet-message">
+                            <div class="col-md-12">
+                                {{kweet.inhoud}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row extra-padding-block" *ngIf="showTimeline == 2">
+            <div class="row">
+                <div class="col-md-2 block-titel">
+                    <b>Mentions:</b>
+                </div>
+            </div>
+        </div>
+        <div class="row extra-padding-block" *ngIf="showTimeline == 3">
+            <div class="row">
+                <div class="col-md-2 block-titel">
+                    <b>Trends:</b>
+                </div>
+            </div>
+        </div>
+        <div class="row extra-padding-block" *ngIf="showTimeline == 4">
+            <div class="row">
+                <div class="col-md-3 block-titel">
+                    <b>Found Kweets:</b>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="row extra-padding-block" *ngIf="lastKweet">
+            <div class="row">
+                <div class="col-md-3 block-titel">
+                    <b>Last Kweet:</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="kweet-border">
+                        <div class="row kweet-title">
+                            <div class="col-md-10">
+                                <span class="profile-link" (click)="redirectToProfile(lastKweet.eigenaar.profielNaam)">{{lastKweet.eigenaar.profielNaam}}'s</span> kweet van: {{lastKweet.datum}}
+                            </div>
+                        </div>
+                        <div class="row kweet-message">
+                            <div class="col-md-12">
+                                {{lastKweet.inhoud}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row extra-padding-block">
+            <div class="row">
+                <div class="col-md-2 block-titel">
+                    <b>Lijsten:</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4" *ngIf="kwetteraar.kweets">
+                    <span class="profile-link" (click)="toggleTimeline(1)">Kweets: {{kwetteraar.kweets.length}}</span>
+                </div>
+                <div class="col-md-4" *ngIf="kwetteraar.leiders">
+                    Leiders: {{kwetteraar.leiders.length}}
+                </div>
+                <div class="col-md-4" *ngIf="kwetteraar.volgers">
+                    Volgers: {{kwetteraar.volgers.length}}
+                </div>
+            </div>
+        </div>
+        <div class="row extra-padding-block" *ngIf="hashtags">
+            <div class="row">
+                <div class="col-md-2 block-titel">
+                    <b>Trends:</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3" *ngFor="let trend of hashtags">
+                    <span class="profile-link" (click)="toggleTimeline(3)">#{{trend.inhoud}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

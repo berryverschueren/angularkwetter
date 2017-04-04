@@ -21,6 +21,7 @@ import { AuthGuard } from "app/guards/authentication.guard";
 import { MyUitloggenComponent } from "app/components/my-uitloggen-component/my-uitloggen-component.component";
 import { OtherProfileComponent } from "app/components/other-profile-component/other-profile-component.component";
 import { UpdateProfileComponent } from "app/components/update-profile-component/update-profile-component.component";
+import { MyStartComponent } from "app/components/my-start-component/my-start-component.component";
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { UpdateProfileComponent } from "app/components/update-profile-component/
     MyProfileComponent,
     OtherProfileComponent,
     UpdateProfileComponent,
-    MyUitloggenComponent
+    MyUitloggenComponent,
+    MyStartComponent
   ],
   imports: [
     BrowserModule,
