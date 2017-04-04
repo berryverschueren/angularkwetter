@@ -49,13 +49,6 @@ export class MyKwetteraarService {
     return this.postRequest(url, body);
   }
 
-  public wijzigNaam(id: number, name: string):  Observable<any> {
-    const endPoint = 'rest/kwetteraar/post/wijzigprofielnaam/';
-    const url = this.globalUrl + endPoint;
-    let body = 'id=' + id + '&nieuweNaam=' + name;
-    return this.postRequest(url, body);
-  }
-
   public wijzigFoto(id: number, foto: string):  Observable<any> {
     const endPoint = 'rest/kwetteraar/post/wijzigprofielfoto/';
     const url = this.globalUrl + endPoint;

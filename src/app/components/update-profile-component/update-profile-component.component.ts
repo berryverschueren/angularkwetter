@@ -37,10 +37,6 @@ export class UpdateProfileComponent implements OnInit {
     }
 
     public opslaan() {
-        this.kwetteraarService.wijzigNaam(this.kwetteraar.id, this.kwetteraar.profielNaam).subscribe(k => {
-            console.log(k);
-            this.kwetteraar = k;
-        });
         this.kwetteraarService.wijzigFoto(this.kwetteraar.id, this.kwetteraar.profielFoto).subscribe(k => {
             console.log(k);
             this.kwetteraar = k;
