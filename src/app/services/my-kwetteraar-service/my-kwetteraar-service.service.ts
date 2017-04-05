@@ -86,7 +86,7 @@ export class MyKwetteraarService {
   
   private getRequest(url: string): any {
     let headers = new Headers({
-      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      'Content-Type': '*'
     });
     return this.http.get(url.replace(/['"]+/g, ''), { headers: headers })
       .map((res: Response) => res.json())

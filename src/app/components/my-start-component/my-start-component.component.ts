@@ -16,6 +16,7 @@ export class MyStartComponent implements OnInit {
 
     public kwetteraar: any;
     public searchString: string;
+    public newKweetString: string;
     public showTimeline: number;
     public hashtags: any;
     public lastKweet: any;
@@ -53,6 +54,7 @@ export class MyStartComponent implements OnInit {
             if (this.kwetteraar.kweets && this.kwetteraar.kweets[this.kwetteraar.kweets.length - 1])
                 this.lastKweet = this.kwetteraar.kweets[this.kwetteraar.kweets.length - 1];
             this.getTimelineKweets();
+            this.getMentions();
         });
     }
 
@@ -65,17 +67,37 @@ export class MyStartComponent implements OnInit {
 
     public toggleTimeline(value: number): void {
         this.showTimeline = value;
-        if (value == 3) {
-            //this.hashtagService.getAllByName()
-        }
     }
 
     public sendKweet(): void {
-
+        this.kweetService.create(this.kwetteraar.profielNaam, this.newKweetString).subscribe(returnedJson => {
+            console.log(returnedJson);
+            this.newKweetString = null;
+            this.ngOnInit();
+        });
     }
 
     public searchKweet(): void {
-
+        this.kweetService.getByContent(this.searchString).subscribe(returnedJson => {
+            console.log(returnedJson);
+            this.foundKweets = returnedJson;
+            this.searchString = null;
+            this.toggleTimeline(4);
+        });
     }
 
+    public getTrends(trend: string): void {
+        this.kweetService.getByContent(trend).subscribe(returnedJson => {
+            console.log(returnedJson);
+            this.hashtagKweets = returnedJson;
+            this.toggleTimeline(3);
+        });
+    }
+
+    public getMentions(): void {
+        this.kweetService.getByContent('@' + this.kwetteraar.profielNaam).subscribe(returnedJson => {
+            console.log(returnedJson);
+            this.mentionKweets = returnedJson;
+        });
+    }
 }

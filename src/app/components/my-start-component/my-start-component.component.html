@@ -37,9 +37,6 @@
                             <div class="col-md-10">
                                 <span class="profile-link" (click)="redirectToProfile(kweet.eigenaar.profielNaam)">{{kweet.eigenaar.profielNaam}}'s</span> kweet van: {{kweet.datum}}
                             </div>
-                            <div class="col-md-2">
-                                <span class="profile-link" (click)="verwijderKweet(kweet.id)">verwijderen</span>
-                            </div>
                         </div>
                         <div class="row kweet-message">
                             <div class="col-md-12">
@@ -56,6 +53,22 @@
                     <b>Mentions:</b>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div *ngFor="let kweet of mentionKweets" class="kweet-border">
+                        <div class="row kweet-title">
+                            <div class="col-md-10">
+                                <span class="profile-link" (click)="redirectToProfile(kweet.eigenaar.profielNaam)">{{kweet.eigenaar.profielNaam}}'s</span> kweet van: {{kweet.datum}}
+                            </div>
+                        </div>
+                        <div class="row kweet-message">
+                            <div class="col-md-12">
+                                {{kweet.inhoud}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="row extra-padding-block" *ngIf="showTimeline == 3">
             <div class="row">
@@ -63,11 +76,43 @@
                     <b>Trends:</b>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div *ngFor="let kweet of hashtagKweets" class="kweet-border">
+                        <div class="row kweet-title">
+                            <div class="col-md-10">
+                                <span class="profile-link" (click)="redirectToProfile(kweet.eigenaar.profielNaam)">{{kweet.eigenaar.profielNaam}}'s</span> kweet van: {{kweet.datum}}
+                            </div>
+                        </div>
+                        <div class="row kweet-message">
+                            <div class="col-md-12">
+                                {{kweet.inhoud}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="row extra-padding-block" *ngIf="showTimeline == 4">
             <div class="row">
                 <div class="col-md-3 block-titel">
                     <b>Found Kweets:</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div *ngFor="let kweet of foundKweets" class="kweet-border">
+                        <div class="row kweet-title">
+                            <div class="col-md-10">
+                                <span class="profile-link" (click)="redirectToProfile(kweet.eigenaar.profielNaam)">{{kweet.eigenaar.profielNaam}}'s</span> kweet van: {{kweet.datum}}
+                            </div>
+                        </div>
+                        <div class="row kweet-message">
+                            <div class="col-md-12">
+                                {{kweet.inhoud}}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -103,13 +148,16 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4" *ngIf="kwetteraar.kweets">
+                <div class="col-md-3" *ngIf="kwetteraar.kweets">
                     <span class="profile-link" (click)="toggleTimeline(1)">Kweets: {{kwetteraar.kweets.length}}</span>
                 </div>
-                <div class="col-md-4" *ngIf="kwetteraar.leiders">
+                <div class="col-md-3" *ngIf="mentionKweets">
+                    <span class="profile-link" (click)="toggleTimeline(2)">Mentions: {{mentionKweets.length}}</span>
+                </div>
+                <div class="col-md-3" *ngIf="kwetteraar.leiders">
                     Leiders: {{kwetteraar.leiders.length}}
                 </div>
-                <div class="col-md-4" *ngIf="kwetteraar.volgers">
+                <div class="col-md-3" *ngIf="kwetteraar.volgers">
                     Volgers: {{kwetteraar.volgers.length}}
                 </div>
             </div>
@@ -122,7 +170,7 @@
             </div>
             <div class="row">
                 <div class="col-md-3" *ngFor="let trend of hashtags">
-                    <span class="profile-link" (click)="toggleTimeline(3)">#{{trend.inhoud}}</span>
+                    <span class="profile-link" (click)="getTrends(trend.inhoud)">#{{trend.inhoud}}</span>
                 </div>
             </div>
         </div>

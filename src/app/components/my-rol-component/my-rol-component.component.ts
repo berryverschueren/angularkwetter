@@ -20,6 +20,7 @@ export class MyRolComponent implements OnInit {
 
   public getAll() {
     this.rolService.getAll().subscribe(rollen => {
+      console.log(rollen);
       rollen.forEach(r => {
         this.rollen.push(new MyRolModel(r.id, r.titel));
       });
