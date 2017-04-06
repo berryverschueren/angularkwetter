@@ -20,33 +20,33 @@ export class MyRolService {
     return this.getRequest(url);
   }
 
-  public getById(id: number):  Observable<MyRolModel> {
+  public getById(id: number): Observable<MyRolModel> {
     const endPoint = 'rest/rol/get/one/id/' + id;
     const url = this.globalUrl + endPoint;
     return this.getRequest(url);
   }
 
-  public getByName(name: string):  Observable<MyRolModel> {
+  public getByName(name: string): Observable<MyRolModel> {
     const endPoint = 'rest/rol/get/one/name/' + name;
     const url = this.globalUrl + endPoint;
     return this.getRequest(url);
   }
 
-  public create(name: string):  Observable<MyRolModel> {
+  public create(name: string): Observable<MyRolModel> {
     const endPoint = 'rest/rol/post/insert/';
     const url = this.globalUrl + endPoint;
     let body = 'name=' + name;
     return this.postRequest(url, body);
   }
 
-  public update(rol: MyRolModel):  Observable<MyRolModel> {
+  public update(rol: MyRolModel): Observable<MyRolModel> {
     const endPoint = 'rest/rol/post/update/';
     const url = this.globalUrl + endPoint;
     let body = 'id=' + rol.id + '&name=' + rol.titel;
     return this.postRequest(url, body);
   }
 
-  public delete(id: number):  Observable<MyRolModel[]> {
+  public delete(id: number): Observable<MyRolModel[]> {
     const endPoint = 'rest/rol/post/insert/';
     const url = this.globalUrl + endPoint;
     let body = 'id=' + id;
@@ -64,16 +64,16 @@ export class MyRolService {
 
   private postRequest(url: string, body: string) {
     let headers = new Headers({
-          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-        });
-        return this.http.post(url, body, { headers: headers })
-          .map((res: Response) => res.json())
-          .catch(this.handleError);
+      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+    });
+    return this.http.post(url, body, { headers: headers })
+      .map((res: Response) => res.json())
+      .catch(this.handleError);
   }
 
   private handleError(error: any): Observable<any> {
     console.error('An error occurred', error);
     return Observable.throw(error.message || error);
   }
-  
+
 }

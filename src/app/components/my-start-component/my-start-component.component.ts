@@ -100,4 +100,27 @@ export class MyStartComponent implements OnInit {
             this.mentionKweets = returnedJson;
         });
     }
+
+    public likedKweet(kweetId: number): boolean {
+        for (let i = 0; i < this.kwetteraar.hartjes.length; i++) {
+            if (this.kwetteraar.hartjes[i].id == kweetId) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public like(kweetId: number): void {
+        this.kweetService.addLike(this.kwetteraar.profielNaam, kweetId).subscribe(returnedJson => {
+            console.log(returnedJson);
+            this.ngOnInit();
+        });
+    }
+
+    public dislike(kweetId: number): void {
+        this.kweetService.removeLike(this.kwetteraar.profielNaam, kweetId).subscribe(returnedJson => {
+            console.log(returnedJson);
+            this.ngOnInit();
+        });
+    }
 }

@@ -12,6 +12,7 @@ export class MyUitloggenComponent implements OnInit {
 
     public ngOnInit() {
         localStorage.removeItem('loggedInUserName');
+        localStorage.removeItem('loggedInUserRole');
         this.router.navigateByUrl('/inloggen');
     }
 

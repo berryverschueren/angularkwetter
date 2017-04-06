@@ -72,6 +72,13 @@ export class MyKweetService {
     return this.postRequest(url, body);
   }
 
+  public removeLike(naam: string, kweetId: number):  Observable<MyKweetModel> {
+    const endPoint = 'rest/kweet/post/dislike/';
+    const url = this.globalUrl + endPoint;
+    let body = 'naam=' + naam + '&kweetId=' + kweetId;
+    return this.postRequest(url, body);
+  }
+
   public create(naam: string, content: string):  Observable<MyKweetModel> {
     const endPoint = 'rest/kweet/post/insert/';
     const url = this.globalUrl + endPoint;

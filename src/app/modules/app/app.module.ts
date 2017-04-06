@@ -22,6 +22,7 @@ import { MyUitloggenComponent } from "app/components/my-uitloggen-component/my-u
 import { OtherProfileComponent } from "app/components/other-profile-component/other-profile-component.component";
 import { UpdateProfileComponent } from "app/components/update-profile-component/update-profile-component.component";
 import { MyStartComponent } from "app/components/my-start-component/my-start-component.component";
+import { AdminGuard } from "app/guards/admin.guard";
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { MyStartComponent } from "app/components/my-start-component/my-start-com
     MyHashtagService,
     MyLocatieService,
     MyRolService,
-    AuthGuard
+    AuthGuard,
+    AdminGuard
   ],
   bootstrap: [MyAppComponent]
 })

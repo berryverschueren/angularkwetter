@@ -30,19 +30,8 @@ export class MyKwetteraarComponent implements OnInit {
 
 	public getAll() {
 		this.kwetteraarService.getAll().subscribe(kwetteraars => {
-			this.kwetteraars = kwetteraars;
-			let counter = 0;
-
-			// this.kwetteraarService.getByName(localStorage.getItem('loggedInUserName')).subscribe(kwet => {
-			// 	for (let i = 0; i < kwet.banaan.length; i++) {
-			// 		if (kwet.banaan[i] == 'admin') {
-			// 			counter++;
-			// 		}
-			// 	}
-			// 	if (counter == 0) {
-			// 		this.router.navigateByUrl('/start');
-			// 	}
-			// });
+			console.log(kwetteraars);
+			this.kwetteraars = kwetteraars;	
 		});
 	}
 

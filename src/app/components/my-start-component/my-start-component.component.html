@@ -43,6 +43,16 @@
                                 {{kweet.inhoud}}
                             </div>
                         </div>
+                        <div class="row" *ngIf="likedKweet(kweet.id) == true">
+                            <div class="col-md-10">
+                                <span class="profile-link" (click)="dislike(kweet.id)">dislike</span>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="likedKweet(kweet.id) == false">
+                            <div class="col-md-10">
+                                <span class="profile-link" (click)="like(kweet.id)">like</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -64,6 +74,16 @@
                         <div class="row kweet-message">
                             <div class="col-md-12">
                                 {{kweet.inhoud}}
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="likedKweet(kweet.id) == true">
+                            <div class="col-md-10">
+                                <span class="profile-link" (click)="dislike(kweet.id)">dislike</span>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="likedKweet(kweet.id) == false">
+                            <div class="col-md-10">
+                                <span class="profile-link" (click)="like(kweet.id)">like</span>
                             </div>
                         </div>
                     </div>
@@ -89,6 +109,16 @@
                                 {{kweet.inhoud}}
                             </div>
                         </div>
+                        <div class="row" *ngIf="likedKweet(kweet.id) == true">
+                            <div class="col-md-10">
+                                <span class="profile-link" (click)="dislike(kweet.id)">dislike</span>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="likedKweet(kweet.id) == false">
+                            <div class="col-md-10">
+                                <span class="profile-link" (click)="like(kweet.id)">like</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -110,6 +140,16 @@
                         <div class="row kweet-message">
                             <div class="col-md-12">
                                 {{kweet.inhoud}}
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="likedKweet(kweet.id) == true">
+                            <div class="col-md-10">
+                                <span class="profile-link" (click)="dislike(kweet.id)">dislike</span>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="likedKweet(kweet.id) == false">
+                            <div class="col-md-10">
+                                <span class="profile-link" (click)="like(kweet.id)">like</span>
                             </div>
                         </div>
                     </div>

@@ -28,7 +28,10 @@ export class MyInloggenComponent implements OnInit {
 			if (k != null) {
 				this.kwetteraar = new MyKwetteraarModel(k.id, k.profielNaam, k.profielFoto, k.bio, k.website, k.locatie);
                 localStorage.setItem('loggedInUserName', this.kwetteraar.profielNaam);
-				this.router.navigateByUrl('/profile');
+				this.kwetteraarService.getHighestRolByName(localStorage.getItem('loggedInUserName')).subscribe(rolNaam => {
+					localStorage.setItem('loggedInUserRole', rolNaam._body);
+					this.router.navigateByUrl('/profile');
+				});
             }
         });
 	}
