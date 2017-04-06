@@ -104,7 +104,8 @@ export class MyKweetService {
 
   private postRequest(url: string, body: string) {
     let headers = new Headers({
-          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+          //'Access-Control-Allow-Origin': '*'
         });
         return this.http.post(url, body, { headers: headers })
           .map((res: Response) => res.json())
