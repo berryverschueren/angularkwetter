@@ -14,6 +14,7 @@ import { OtherProfileComponent } from "app/components/other-profile-component/ot
 import { UpdateProfileComponent } from "app/components/update-profile-component/update-profile-component.component";
 import { MyStartComponent } from "app/components/my-start-component/my-start-component.component";
 import { AdminGuard } from "app/guards/admin.guard";
+import { AdminComponent } from "app/components/admin-component/admin-component.component";
 
 const routes: Routes = [
   { path: 'kwetteraar',  component: MyKwetteraarComponent, canActivate: [AdminGuard] },
@@ -27,7 +28,8 @@ const routes: Routes = [
   { path: 'registreren',  component: MyRegistrerenComponent },
   { path: 'uitloggen', component: MyUitloggenComponent },
   { path: 'updateprofile', component: UpdateProfileComponent, canActivate: [AuthGuard] },
-  { path: 'start', component: MyStartComponent, canActivate: [AuthGuard] }
+  { path: 'start', component: MyStartComponent, canActivate: [AuthGuard] },
+  { path: 'admin', component: AdminComponent, canActivate: [AdminGuard] }
 ];
 
 @NgModule({

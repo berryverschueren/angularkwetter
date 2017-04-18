@@ -1,0 +1,41 @@
+<div class="row kwetteraar" *ngFor="let kwetteraar of kwetteraars">
+  <div class="col-md-1">
+    <span>id:</span>
+  </div>
+  <div class="col-md-11">
+    <span>{{kwetteraar.id}}</span>
+  </div>
+  <div class="col-md-1">
+    <span>profielNaam:</span>
+  </div>
+  <div class="col-md-11">
+    <span class="profile-link" (click)="redirectToProfile(kwetteraar.profielNaam)">{{kwetteraar.profielNaam}}</span>
+  </div>
+  <div class="col-md-1">
+    <span>profielFoto:</span>
+  </div>
+  <div class="col-md-11">
+    <span>{{kwetteraar.profielFoto}}</span>
+  </div>
+  <div class="col-md-1">
+    <span>bio:</span>
+  </div>
+  <div class="col-md-11">
+    <span>{{kwetteraar.bio}}</span>
+  </div>
+  <div class="col-md-1">
+    <span>website:</span>
+  </div>
+  <div class="col-md-11">
+    <span>{{kwetteraar.website}}</span>
+  </div>
+  <div class="col-md-1">
+    <span>plaatsnaam:</span>
+  </div>
+  <div class="col-md-11">
+    <span>{{kwetteraar.locatie.plaatsNaam}}</span>
+  </div>
+  <div class="col-md-1">
+    <span class="profile-link" (click)="switchRole(kwetteraar.profielNaam)">Switch Role</span>
+  </div>
+</div>

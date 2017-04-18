@@ -24,8 +24,6 @@ export class MyKwetteraarService {
     return this.getRequest(url);
   }
 
-  
-
   public getByName(name: string): Observable<any> {
     const endPoint = 'rest/kwetteraar/get/one/name/' + name;
     const url = this.globalUrl + endPoint;
@@ -55,6 +53,13 @@ export class MyKwetteraarService {
     const url = this.globalUrl + endPoint;
     let body = 'name=' + name + '&foto=' + foto + '&bio=' + bio + '&website='
       + website + '&rol=' + rol + '&locatie=' + locatie + '&wachtwoord=' + wachtwoord;
+    return this.postRequest(url, body);
+  }
+
+  public switchRole(name: string): Observable<any> {
+    const endPoint = 'rest/kwetteraar/post/switchRole/';
+    const url = this.globalUrl + endPoint;
+    let body = 'name=' + name;
     return this.postRequest(url, body);
   }
 

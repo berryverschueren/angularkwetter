@@ -23,6 +23,7 @@ import { OtherProfileComponent } from "app/components/other-profile-component/ot
 import { UpdateProfileComponent } from "app/components/update-profile-component/update-profile-component.component";
 import { MyStartComponent } from "app/components/my-start-component/my-start-component.component";
 import { AdminGuard } from "app/guards/admin.guard";
+import { AdminComponent } from "app/components/admin-component/admin-component.component";
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AdminGuard } from "app/guards/admin.guard";
     OtherProfileComponent,
     UpdateProfileComponent,
     MyUitloggenComponent,
-    MyStartComponent
+    MyStartComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
