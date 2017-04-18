@@ -25,6 +25,7 @@ export class MyInloggenComponent implements OnInit {
 
 	public inloggen(name: string, pass: string) {
 		this.kwetteraarService.inloggen(name, pass).subscribe(k => {
+			console.log(k);
 			if (k != null) {
 				this.kwetteraar = new MyKwetteraarModel(k.id, k.profielNaam, k.profielFoto, k.bio, k.website, k.locatie);
                 localStorage.setItem('loggedInUserName', this.kwetteraar.profielNaam);

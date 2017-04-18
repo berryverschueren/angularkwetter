@@ -38,6 +38,11 @@ export class AdminComponent implements OnInit {
     public switchRole(name: string): void {
         this.kwetteraarService.switchRole(name).subscribe(kwetteraar => {
             console.log(kwetteraar);
+            if (kwetteraar.profielNaam == localStorage.getItem('loggedInUserName')) {
+                localStorage.setItem('loggedInUserRole', kwetteraar.rol);
+                if (kwetteraar.rol != 'admin') 
+                    this.router.navigateByUrl('/profile');
+            }
         });
     }
 }
