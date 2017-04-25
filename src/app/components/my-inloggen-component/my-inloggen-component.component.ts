@@ -10,14 +10,14 @@ import { Router } from "@angular/router";
 })
 export class MyInloggenComponent implements OnInit {
 
-    public kwetteraar: MyKwetteraarModel;
+	public kwetteraar: MyKwetteraarModel;
 	public name: string;
 	public password: string;
-	
+
 	constructor(private router: Router, private kwetteraarService: MyKwetteraarService) { }
 
 	ngOnInit() {
-	}	
+	}
 
 	public formProcess() {
 		this.inloggen(this.name, this.password);
@@ -28,13 +28,33 @@ export class MyInloggenComponent implements OnInit {
 			console.log(k);
 			if (k != null) {
 				this.kwetteraar = new MyKwetteraarModel(k.id, k.profielNaam, k.profielFoto, k.bio, k.website, k.locatie);
-                localStorage.setItem('loggedInUserName', this.kwetteraar.profielNaam);
-				this.kwetteraarService.getHighestRolByName(localStorage.getItem('loggedInUserName')).subscribe(rolNaam => {
-					localStorage.setItem('loggedInUserRole', rolNaam._body);
-					this.router.navigateByUrl('/profile');
-				});
-            }
-        });
+
+				if (localStorage.getItem('loggedInUserName') != null) {
+					this.uitloggen(localStorage.getItem('loggedInUserName'));
+				}
+				else {
+					localStorage.setItem('loggedInUserName', this.kwetteraar.profielNaam);
+					this.kwetteraarService.getHighestRolByName(localStorage.getItem('loggedInUserName')).subscribe(rolNaam => {
+						localStorage.setItem('loggedInUserRole', rolNaam._body);
+						this.router.navigateByUrl('/profile');
+					});
+				}
+
+			}
+		});
+	}
+
+	public uitloggen(name: string) {
+		this.kwetteraarService.uitloggen(name).subscribe(k => {
+			localStorage.removeItem('loggedInUserName');
+			localStorage.removeItem('loggedInUserRole');
+
+			localStorage.setItem('loggedInUserName', this.kwetteraar.profielNaam);
+			this.kwetteraarService.getHighestRolByName(localStorage.getItem('loggedInUserName')).subscribe(rolNaam => {
+				localStorage.setItem('loggedInUserRole', rolNaam._body);
+				this.router.navigateByUrl('/profile');
+			});
+		});
 	}
 
 }

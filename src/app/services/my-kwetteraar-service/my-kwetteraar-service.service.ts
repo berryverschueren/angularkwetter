@@ -6,8 +6,8 @@ import { MyKwetteraarModel } from "app/models/my-kwetteraar-model/my-kwetteraar-
 @Injectable()
 export class MyKwetteraarService {
 
-  private globalUrl = 'http://localhost:8080/Kwetter_war/';
-  //private globalUrl = 'http://localhost:64550/Kwetter_war_exploded/';
+  //private globalUrl = 'http://localhost:8080/Kwetter_war/';
+  private globalUrl = 'http://localhost:64550/Kwetter_war_exploded/';
 
   constructor(private http: Http) {
   }
@@ -95,6 +95,13 @@ export class MyKwetteraarService {
     const endPoint = 'rest/kwetteraar/post/login/';
     const url = this.globalUrl + endPoint;
     let body = 'name=' + name + '&wachtwoord=' + wachtwoord;
+    return this.postRequest(url, body);
+  }
+
+  public uitloggen(name: string): Observable<any> {
+    const endPoint = 'rest/kwetteraar/post/logout/';
+    const url = this.globalUrl + endPoint;
+    let body = 'name=' + name;
     return this.postRequest(url, body);
   }
 

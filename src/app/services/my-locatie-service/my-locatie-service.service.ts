@@ -6,8 +6,8 @@ import { MyLocatieModel } from "app/models/my-locatie-model/my-locatie-model";
 @Injectable()
 export class MyLocatieService {
 
-  private globalUrl = 'http://localhost:8080/Kwetter_war/';
-  //private globalUrl = 'http://localhost:64550/Kwetter_war_exploded/';
+  //private globalUrl = 'http://localhost:8080/Kwetter_war/';
+  private globalUrl = 'http://localhost:64550/Kwetter_war_exploded/';
 
   constructor(private http: Http) {
   }

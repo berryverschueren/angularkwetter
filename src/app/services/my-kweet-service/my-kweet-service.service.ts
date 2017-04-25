@@ -6,8 +6,8 @@ import { MyKweetModel } from "app/models/my-kweet-model/my-kweet-model";
 @Injectable()
 export class MyKweetService {
 
-  private globalUrl = 'http://localhost:8080/Kwetter_war/';
-  //private globalUrl = 'http://localhost:64550/Kwetter_war_exploded/';
+  //private globalUrl = 'http://localhost:8080/Kwetter_war/';
+  private globalUrl = 'http://localhost:64550/Kwetter_war_exploded/';
 
   constructor(private http: Http) {
   }
