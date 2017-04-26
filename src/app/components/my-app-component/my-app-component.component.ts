@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
+import { MyKwetteraarService } from "app/services/my-kwetteraar-service/my-kwetteraar-service.service";
 
 @Component({
 	selector: 'my-app-component',
@@ -7,9 +8,18 @@ import { Component } from '@angular/core';
 })
 export class MyAppComponent {
 
-	constructor(){}
+	constructor(private kwetteraarService: MyKwetteraarService) {
+	}
 
-    public uitloggen() {
-        localStorage.removeItem('loggedInUserName');
-    }
+	public uitloggen(name: string) {
+		localStorage.removeItem('loggedInUserName');
+		localStorage.removeItem('loggedInUserRole');
+		this.kwetteraarService.uitloggen(name).subscribe(k => {
+		});
+	}
+
+	@HostListener('window:beforeunload', ['$event'])
+	public beforeUnloadHandler(event) {
+		this.uitloggen(localStorage.getItem('loggedInUserName'));
+	}
 }

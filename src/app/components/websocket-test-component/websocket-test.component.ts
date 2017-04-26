@@ -30,16 +30,19 @@ export class WebsocketTest {
         };
 
         function onMessage(event) {
-            this.messages += '<br />Received message: ' + event.data;
-        }
+            console.log(event.data);
+            document.getElementById('messages').innerHTML += '<br />Received message: ' + event.data;
+            //this.messages += '<br />Received message: ' + event.data;
+        };
 
         function onOpen(event) {
-            this.messages = 'Connection established';
-        }
+            document.getElementById('messages').innerHTML = 'Connection established';
+            //this.messages = 'Connection established';
+        };
 
         function onError(event) {
             alert(event.data);
-        }
+        };
     }
 
     public send() {
