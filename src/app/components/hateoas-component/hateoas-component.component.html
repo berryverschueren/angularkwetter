@@ -1,0 +1,152 @@
+<div *ngIf="kwetteraars">
+    <h2>Kwetteraars:</h2>
+    <ul *ngFor="let kwetteraar of kwetteraars">
+        <li>
+            {{kwetteraar.id}}
+        </li>
+        <li>
+            {{kwetteraar.profielNaam}}
+        </li>
+        <li>
+            {{kwetteraar.rol}}
+        </li>
+        <li>
+            _links:
+        </li>
+        <ul *ngFor="let link of kwetteraar._links">
+            <li>
+                <span class="profile-link" (click)="getByUri(link.href)">{{link.href}}</span>
+            </li>
+            <li>
+                {{link.rel}}
+            </li>
+            <li>
+                {{link.type}}
+            </li>
+        </ul>
+    </ul>
+</div>
+<div *ngIf="kwetteraar">
+    <h2>Kwetteraar:</h2>
+    <ul>
+        <li>
+            {{kwetteraar.id}}
+        </li>
+        <li>
+            {{kwetteraar.profielNaam}}
+        </li>
+        <li>
+            {{kwetteraar.profielFoto}}
+        </li>
+        <li>
+            {{kwetteraar.bio}}
+        </li>
+        <li>
+            {{kwetteraar.website}}
+        </li>
+        <li>
+            {{kwetteraar.rol}}
+        </li>
+        <li>
+            _locatie:
+        </li>
+        <ul>
+            <li>
+                {{kwetteraar._locatie.id}}
+            </li>
+            <li>
+                {{kwetteraar._locatie.plaatsNaam}}
+            </li>
+            <li>
+                {{kwetteraar._locatie.latitude}}
+            </li>
+            <li>
+                {{kwetteraar._locatie.longitude}}
+            </li>
+            <li>
+                _links:
+            </li>
+            <ul *ngFor="let link of kwetteraar._locatie._links">
+                <li>
+                    <span class="profile-link" (click)="getByUri(link.href)">{{link.href}}</span>
+                </li>
+                <li>
+                    {{link.rel}}
+                </li>
+                <li>
+                    {{link.type}}
+                </li>
+            </ul>
+        </ul>
+        <li>
+            _volgers:
+        </li>
+        <ul *ngFor="let volger of kwetteraar._volgers">
+            <li>
+                {{volger.id}}
+            </li>
+            <li>
+                {{volger.profielNaam}}
+            </li>
+            <li>
+                {{volger.rol}}
+            </li>
+            <li>
+                _links:
+            </li>
+            <ul *ngFor="let link of volger._links">
+                <li>
+                    <span class="profile-link" (click)="getByUri(link.href)">{{link.href}}</span>
+                </li>
+                <li>
+                    {{link.rel}}
+                </li>
+                <li>
+                    {{link.type}}
+                </li>
+            </ul>
+        </ul>
+        <li>
+            _leiders:
+        </li>
+        <ul *ngFor="let leider of kwetteraar._leiders">
+            <li>
+                {{leider.id}}
+            </li>
+            <li>
+                {{leider.profielNaam}}
+            </li>
+            <li>
+                {{leider.rol}}
+            </li>
+            <li>
+                _links:
+            </li>
+            <ul *ngFor="let link of leider._links">
+                <li>
+                    <span class="profile-link" (click)="getByUri(link.href)">{{link.href}}</span>
+                </li>
+                <li>
+                    {{link.rel}}
+                </li>
+                <li>
+                    {{link.type}}
+                </li>
+            </ul>
+        </ul>
+        <li>
+            _links:
+        </li>
+        <ul *ngFor="let link of kwetteraar._links">
+            <li>
+                <span class="profile-link" (click)="getByUri(link.href)">{{link.href}}</span>
+            </li>
+            <li>
+                {{link.rel}}
+            </li>
+            <li>
+                {{link.type}}
+            </li>
+        </ul>
+    </ul>
+</div>

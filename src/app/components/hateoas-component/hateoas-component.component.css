@@ -1,0 +1,7 @@
+.profile-link {
+     color: #006699;
+ }
+ 
+.profile-link:hover {
+    cursor: pointer;
+}

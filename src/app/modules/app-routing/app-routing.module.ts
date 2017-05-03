@@ -16,6 +16,7 @@ import { MyStartComponent } from "app/components/my-start-component/my-start-com
 import { AdminGuard } from "app/guards/admin.guard";
 import { AdminComponent } from "app/components/admin-component/admin-component.component";
 import { WebsocketTest } from "app/components/websocket-test-component/websocket-test.component";
+import { HateoasComponent } from "app/components/hateoas-component/hateoas-component.component";
 
 const routes: Routes = [
   { path: 'kwetteraar',  component: MyKwetteraarComponent, canActivate: [AdminGuard] },
@@ -31,7 +32,8 @@ const routes: Routes = [
   { path: 'updateprofile', component: UpdateProfileComponent, canActivate: [AuthGuard] },
   { path: 'start', component: MyStartComponent, canActivate: [AuthGuard] },
   { path: 'admin', component: AdminComponent, canActivate: [AdminGuard] },
-  { path: 'websocket', component: WebsocketTest, canActivate: [AuthGuard] }
+  { path: 'websocket', component: WebsocketTest, canActivate: [AuthGuard] },
+  { path: 'hateoas', component: HateoasComponent }
 ];
 
 @NgModule({

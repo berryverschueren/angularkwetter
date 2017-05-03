@@ -25,6 +25,8 @@ import { MyStartComponent } from "app/components/my-start-component/my-start-com
 import { AdminGuard } from "app/guards/admin.guard";
 import { AdminComponent } from "app/components/admin-component/admin-component.component";
 import { WebsocketTest } from "app/components/websocket-test-component/websocket-test.component";
+import { HateoasComponent } from "app/components/hateoas-component/hateoas-component.component";
+import { HateoasService } from "app/services/hateoas-service/hateoas-service.service";
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { WebsocketTest } from "app/components/websocket-test-component/websocket
     MyUitloggenComponent,
     MyStartComponent,
     AdminComponent,
-    WebsocketTest
+    WebsocketTest,
+    HateoasComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,8 @@ import { WebsocketTest } from "app/components/websocket-test-component/websocket
     MyLocatieService,
     MyRolService,
     AuthGuard,
-    AdminGuard
+    AdminGuard,
+    HateoasService
   ],
   bootstrap: [MyAppComponent]
 })
