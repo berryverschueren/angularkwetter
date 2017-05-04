@@ -15,7 +15,7 @@
         </li>
         <ul *ngFor="let link of kwetteraar._links">
             <li>
-                <span class="profile-link" (click)="getByUri(link.href)">{{link.href}}</span>
+                <span class="profile-link" (click)="getKwetteraar(link.href)">{{link.href}}</span>
             </li>
             <li>
                 {{link.rel}}
@@ -68,7 +68,7 @@
             </li>
             <ul *ngFor="let link of kwetteraar._locatie._links">
                 <li>
-                    <span class="profile-link" (click)="getByUri(link.href)">{{link.href}}</span>
+                    <span class="profile-link" (click)="getLocatie(link.href)">{{link.href}}</span>
                 </li>
                 <li>
                     {{link.rel}}
@@ -96,7 +96,7 @@
             </li>
             <ul *ngFor="let link of volger._links">
                 <li>
-                    <span class="profile-link" (click)="getByUri(link.href)">{{link.href}}</span>
+                    <span class="profile-link" (click)="getKwetteraar(link.href)">{{link.href}}</span>
                 </li>
                 <li>
                     {{link.rel}}
@@ -124,7 +124,7 @@
             </li>
             <ul *ngFor="let link of leider._links">
                 <li>
-                    <span class="profile-link" (click)="getByUri(link.href)">{{link.href}}</span>
+                    <span class="profile-link" (click)="getKwetteraar(link.href)">{{link.href}}</span>
                 </li>
                 <li>
                     {{link.rel}}
@@ -139,7 +139,38 @@
         </li>
         <ul *ngFor="let link of kwetteraar._links">
             <li>
-                <span class="profile-link" (click)="getByUri(link.href)">{{link.href}}</span>
+                <span class="profile-link" (click)="getKwetteraar(link.href)">{{link.href}}</span>
+            </li>
+            <li>
+                {{link.rel}}
+            </li>
+            <li>
+                {{link.type}}
+            </li>
+        </ul>
+    </ul>
+</div>
+<div *ngIf="locatie">
+    <h2>Locatie:</h2>
+    <ul>
+        <li>
+            {{locatie.id}}
+        </li>
+        <li>
+            {{locatie.plaatsNaam}}
+        </li>
+        <li>
+            {{locatie.latitude}}
+        </li>
+        <li>
+            {{locatie.longitude}}
+        </li>
+        <li>
+            _links:
+        </li>
+        <ul *ngFor="let link of locatie._links">
+            <li>
+                <span class="profile-link" (click)="getLocatie(link.href)">{{link.href}}</span>
             </li>
             <li>
                 {{link.rel}}
